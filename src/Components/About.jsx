@@ -1,6 +1,7 @@
 import { aboutData } from "../data";
 import { motion } from "framer-motion";
 import { plateVariants, staggerContainer, fadeIn } from "../variants";
+import Image from 'next/image';
 
 const About = () => {
   const { pretitle, title, subtitle, btnText, image } = aboutData;
@@ -53,8 +54,16 @@ const About = () => {
           </motion.div>
         </div>
       </motion.div>
-      <motion.div variants={plateVariants} className="z-[1]">
-        <img src={image} alt="" />
+      <motion.div variants={plateVariants} className="z-[1] relative w-full h-[500px]">
+        <Image 
+          src={image}
+          alt="About Bistro Cafe plate presentation"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-contain"
+          quality={90}
+        />
       </motion.div>
     </motion.section>
   );
